@@ -1,0 +1,36 @@
+{
+  "name": "youstore-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start:merchant": "ng serve youstore-merchant --port 4300",
+    "start:admin": "ng serve youstore-admin --port 4301",
+    "start:storefront": "ng serve youstore-storefront --port 4302",
+    "build:merchant": "ng build youstore-merchant",
+    "build:admin": "ng build youstore-admin",
+    "build:storefront": "ng build youstore-storefront"
+  },
+  "dependencies": {
+    "@angular/animations": "17.0.0",
+    "@angular/common": "17.0.0",
+    "@angular/common/http": "17.0.0",
+    "@angular/compiler": "17.0.0",
+    "@angular/core": "17.0.0",
+    "@angular/forms": "17.0.0",
+    "@angular/platform-browser": "17.0.0",
+    "@angular/platform-browser-dynamic": "17.0.0",
+    "@angular/platform-browser/animations": "17.0.0",
+    "@angular/router": "17.0.0",
+    "@angular/cdk": "17.0.0",
+    "@angular/material": "17.0.0",
+    "rxjs": "~7.8.1",
+    "zone.js": "~0.12.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "17.0.0",
+    "@angular/cli": "17.0.0",
+    "@angular/compiler-cli": "17.0.0",
+    "typescript": "~5.1.6"
+  }
+}

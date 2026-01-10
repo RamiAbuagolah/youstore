@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "MyLUOMbrqR7fOnF/NYQgFJGBh1rgYL3T5C3NSvyxHME=",
+  "Source": "YouStore.Api",
+  "BasePath": "_content/YouStore.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

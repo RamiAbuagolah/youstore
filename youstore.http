@@ -1,0 +1,38 @@
+### Register a merchant
+POST https://localhost:5001/merchants/register
+Content-Type: application/json
+
+{
+  "email": "merchant@example.com",
+  "password": "SecurePass123!"
+}
+
+### Exchange token
+POST https://localhost:5001/merchants/login
+Content-Type: application/json
+
+{
+  "email": "merchant@example.com",
+  "password": "SecurePass123!"
+}
+
+### List templates
+GET https://localhost:5001/templates
+
+### Create a store (requires Authorization header)
+POST https://localhost:5001/stores
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "name": "Downtown Boutique",
+  "slug": "downtown-boutique",
+  "templateId": "08f8a83b-f0a9-4b80-8bbe-1ecb1c3f4f11"
+}
+
+### List store categories (requires Authorization header)
+GET https://localhost:5001/stores/{storeId}/categories
+Authorization: Bearer <token>
+
+### List marketplace stores
+GET https://localhost:5001/marketplace/stores

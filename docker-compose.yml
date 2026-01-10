@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: youstore-postgres
+    environment:
+      POSTGRES_DB: youstore
+      POSTGRES_USER: youstore
+      POSTGRES_PASSWORD: youstore
+    ports:
+      - "5432:5432"
+    volumes:
+      - youstore-postgres:/var/lib/postgresql/data
+
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    container_name: youstore-azurite
+    command: "azurite --blobHost 0.0.0.0 --queueHost 0.0.0.0 --tableHost 0.0.0.0"
+    ports:
+      - "10000:10000"
+      - "10001:10001"
+      - "10002:10002"
+    volumes:
+      - youstore-azurite:/data
+
+volumes:
+  youstore-postgres:
+  youstore-azurite:

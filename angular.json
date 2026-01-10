@@ -1,0 +1,88 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "defaultProject": "youstore-merchant",
+  "projects": {
+    "youstore-merchant": {
+      "projectType": "application",
+      "root": "apps/youstore-merchant",
+      "sourceRoot": "apps/youstore-merchant/src",
+      "prefix": "youstore-merchant",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/youstore-merchant",
+            "index": "apps/youstore-merchant/src/index.html",
+            "main": "apps/youstore-merchant/src/main.ts",
+            "tsConfig": "apps/youstore-merchant/tsconfig.app.json",
+            "polyfills": [],
+            "assets": ["apps/youstore-merchant/src/favicon.ico"],
+            "styles": ["apps/youstore-merchant/src/styles.css"],
+            "scripts": []
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "youstore-merchant:build"
+          }
+        }
+      }
+    },
+    "youstore-admin": {
+      "projectType": "application",
+      "root": "apps/youstore-admin",
+      "sourceRoot": "apps/youstore-admin/src",
+      "prefix": "youstore-admin",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/youstore-admin",
+            "index": "apps/youstore-admin/src/index.html",
+            "main": "apps/youstore-admin/src/main.ts",
+            "tsConfig": "apps/youstore-admin/tsconfig.app.json",
+            "polyfills": [],
+            "assets": ["apps/youstore-admin/src/favicon.ico"],
+            "styles": ["apps/youstore-admin/src/styles.css"],
+            "scripts": []
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "youstore-admin:build"
+          }
+        }
+      }
+    },
+    "youstore-storefront": {
+      "projectType": "application",
+      "root": "apps/youstore-storefront",
+      "sourceRoot": "apps/youstore-storefront/src",
+      "prefix": "youstore-storefront",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/youstore-storefront",
+            "index": "apps/youstore-storefront/src/index.html",
+            "main": "apps/youstore-storefront/src/main.ts",
+            "tsConfig": "apps/youstore-storefront/tsconfig.app.json",
+            "polyfills": [],
+            "assets": ["apps/youstore-storefront/src/favicon.ico"],
+            "styles": ["apps/youstore-storefront/src/styles.css"],
+            "scripts": []
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "youstore-storefront:build"
+          }
+        }
+      }
+    }
+  }
+}
