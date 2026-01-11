@@ -2,13 +2,14 @@ using System.Linq;
 using System.Text;
 using FluentValidation;
 using Hellang.Middleware.ProblemDetails;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using YouStore.Application.Interfaces;
 using YouStore.Application.Common.Behaviors;
 using YouStore.Application.Features.Merchant.Commands;
+using YouStore.Application.Interfaces;
 using YouStore.Api.Services;
 using YouStore.Infrastructure.Extensions;
 

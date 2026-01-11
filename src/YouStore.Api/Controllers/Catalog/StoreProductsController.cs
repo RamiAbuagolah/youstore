@@ -2,6 +2,7 @@ using System.IO;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using YouStore.Api.Extensions;
 using YouStore.Api.Requests;
 using YouStore.Application.Features.Catalog.Product.Commands;
@@ -76,12 +77,13 @@ public sealed class StoreProductsController : ControllerBase
 
     [Authorize]
     [HttpPost("{productId:guid}/images")]
-    public async Task<IActionResult> UploadImage(Guid storeId, Guid productId, [FromForm] IFormFile file, [FromForm] bool isPrimary)
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> UploadImage(Guid storeId, Guid productId, [FromForm] UploadProductImageRequest request)
     {
         var tenantId = User.GetGuidClaim("tenantId");
         await using var ms = new MemoryStream();
-        await file.CopyToAsync(ms);
-        var command = new UploadProductImageCommand(tenantId, storeId, productId, file.FileName, file.ContentType ?? "application/octet-stream", ms.ToArray(), isPrimary);
+        await request.File!.CopyToAsync(ms);
+        var command = new UploadProductImageCommand(tenantId, storeId, productId, request.File.FileName, request.File.ContentType ?? "application/octet-stream", ms.ToArray(), request.IsPrimary);
         var url = await _mediator.Send(command);
         return Created($"/stores/{storeId}/products/{productId}/images", new { url });
     }
